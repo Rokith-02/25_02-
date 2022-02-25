@@ -37,20 +37,31 @@ void pop(st**ptr)
         free(temp);
         temp=NULL;
 }
+void print(st*ptr)
+{
+        st *temp=ptr;
+        while(temp!=0)
+        {
+                printf("%d",temp->roll);
+                temp=temp->next;
+        }
+        printf("\n");
+}
 int main()
 {
         st*top=0;
         int op;
         while(1)
         {
-        printf("1) push 2) peak 3) pop 4)exit\n");
+        printf("1) push 2) peak 3) pop 4)print 5)exit\n");
         scanf(" %d",&op);
         switch(op)
         {
         case 1:push(&top);break;
         case 2:peak(top);break;
         case 3:pop(&top);break;
-        case 4:return 0;
+        case 4:print(top);break;
+        case 5:return 0;
         default:printf("invalid option\n");break;
         }
         }
